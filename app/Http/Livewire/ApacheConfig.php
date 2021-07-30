@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class ApacheConfig extends Component
 {
-    
+
     public $serverAdmin;
     public $serverName;
     public $serverAlias;
@@ -14,9 +14,11 @@ class ApacheConfig extends Component
     public $certificateFile;
     public $certificateKey;
     public $certificateChain;
+    public $showSsl = false;
 
     public function render()
     {
         return view('livewire.apache-config');
     }
+
 }

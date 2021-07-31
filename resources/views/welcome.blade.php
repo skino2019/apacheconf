@@ -17,12 +17,13 @@
     <livewire:styles />
 </head>
 
-<body class="antialiased">
+<body class="antialiased px-10">
 
-    @livewire('apache-config');
+    @livewire('apache-config')
 
+
+</div>
     <livewire:scripts />
-
 </body>
 
 </html>

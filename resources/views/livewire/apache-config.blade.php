@@ -136,7 +136,7 @@
 
 
             <div class="flex flex-around">
-                <button class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button mr-1 mt-3">Copy to Clipboard</button>
+                <button onclick="copyToClipboard" class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button mr-1 mt-3">Copy to Clipboard</button>
                 <div></div>
                 <button class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button ml-1 mt-3">Download Config</button>
             </div>
@@ -188,7 +188,7 @@
         </div>
     </div>
     {{-- <div class="divider divider-vertical divide-base-100"></div> --}}
-    <div class="grid flex-grow w-2/3 card bg-base-200 rounded-box place-items-start ml-4 text-sm">
+    <div class="grid flex-grow w-2/3 card bg-base-200 rounded-box place-items-start ml-4 text-md">
         <pre>
             <code>
 
@@ -240,14 +240,21 @@
 
         &lt;/VirtualHost&gt;
                     @endif
+
             </code>
         </pre>
     </div>
-</div>
 
-<script>
-    function copyToClipboard(id) {
-        document.getElementById(id).select();
-        document.execCommand('copy');
-    }
-</script>
+    </div>
+    {{-- <div class="grid flex-grow w-auto card bg-base-200 rounded-box place-items-start p-4 mx-4 text-md justify-center">Built With Laravel, Tailwind, Livewire and of course... Love.</div> --}}
+    <div class="grid flex-grow w-auto card bg-base-200 rounded-box place-items-start p-4 mx-4 text-md justify-center">
+
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+        Built With Laravel, Tailwind, Livewire and of course... Love. Please follow me on Twitter @skino2020
+        <a class="ml-3 text-gray-400">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+
+      </span></div>

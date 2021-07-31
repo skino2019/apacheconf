@@ -188,7 +188,7 @@
         </div>
     </div>
     {{-- <div class="divider divider-vertical divide-base-100"></div> --}}
-    <div class="grid flex-grow w-2/3 card bg-base-200 rounded-box place-items-start ml-4">
+    <div class="grid flex-grow w-2/3 card bg-base-200 rounded-box place-items-start ml-4 text-sm">
         <pre>
             <code>
 

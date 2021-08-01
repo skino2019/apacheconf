@@ -136,7 +136,7 @@
 
 
             <div class="flex flex-around">
-                <button id="copy" type="button" class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button mr-1 mt-3">Copy to Clipboard</button>
+                <button class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button mr-1 mt-3">Copy to Clipboard</button>
                 <div></div>
                 <button class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button ml-1 mt-3">Download Config</button>
             </div>

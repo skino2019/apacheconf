@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 {{--    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>--}}
-
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <livewire:styles />
 </head>
 
@@ -24,6 +24,16 @@
 
 </div>
     <livewire:scripts />
+    
+<script>
+    function copy(){
+        var copyText = document.querySelector("#input");
+        copyText.select();
+        document.execCommand("copy");
+    }
+
+    document.querySelector("#copy").addEventListener("click", copy);
+</script>
 </body>
 
 </html>

@@ -136,7 +136,7 @@
 
 
             <div class="flex flex-around">
-                <button onclick="copyToClipboard" class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button mr-1 mt-3">Copy to Clipboard</button>
+                <button id="copy" type="button" class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button mr-1 mt-3">Copy to Clipboard</button>
                 <div></div>
                 <button class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button ml-1 mt-3">Download Config</button>
             </div>
@@ -188,7 +188,7 @@
         </div>
     </div>
     {{-- <div class="divider divider-vertical divide-base-100"></div> --}}
-    <div class="grid flex-grow w-2/3 card bg-base-200 rounded-box place-items-start ml-4 text-md">
+    <div id="input" class="grid flex-grow w-2/3 card bg-base-200 rounded-box place-items-start ml-4 text-md">
         <pre>
             <code>
 

@@ -17,8 +17,22 @@
 
     @livewire('apache-config')
 
-</div>
+    </div>
     <livewire:scripts />
+
+    <script>
+        function copyToClipboard(elementId) {
+            var aux = document.createElement("input");
+            aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+            document.body.appendChild(aux);
+            aux.select();
+            document.execCommand("copy");
+            document.body.removeChild(aux);
+        }
+        function log() {
+            console.log('---')
+        }
+    </script>
 </body>
 
 </html>

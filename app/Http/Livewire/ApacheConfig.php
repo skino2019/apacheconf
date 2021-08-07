@@ -20,5 +20,4 @@ class ApacheConfig extends Component
     {
         return view('livewire.apache-config');
     }
-
 }

@@ -22,56 +22,38 @@
                 <label class="label">
                     <span class="label-text">ServerAdmin</span>
                 </label>
-                <input wire:model="serverAdmin"
-                       id="serverAdmin"
-                       name="serverAdmin"
-                       placeholder="john@doe.com"
-                       type="text"
-                       class="input input-secondary input-bordered mb-3.5">
+                <input wire:model="serverAdmin" id="serverAdmin" name="serverAdmin" placeholder="john@doe.com"
+                    type="text" class="input input-secondary input-bordered mb-3.5">
 
                 {{-- Server Name --}}
                 <label class="label">
                     <span class="label-text">ServerName</span>
                 </label>
-                <input wire:model="serverName"
-                       id="serverName"
-                       name="serverName"
-                       type="text"
-                       placeholder="yoursite.com"
-                       class="input input-secondary input-bordered mb-3.5">
+                <input wire:model="serverName" id="serverName" name="serverName" type="text" placeholder="yoursite.com"
+                    class="input input-secondary input-bordered mb-3.5">
 
                 {{-- Server Alias --}}
                 <label class="label">
                     <span class="label-text">ServerAlias</span>
                 </label>
-                <input wire:model="serverAlias"
-                       id="serverAlias"
-                       name="serverAlias"
-                       type="text"
-                       placeholder="www.yoursite.com"
-                       class="input input-secondary input-bordered mb-3.5">
+                <input wire:model="serverAlias" id="serverAlias" name="serverAlias" type="text"
+                    placeholder="www.yoursite.com" class="input input-secondary input-bordered mb-3.5">
 
                 {{-- Server Alias --}}
                 <label class="label">
                     <span class="label-text">DocumentRoot</span>
                 </label>
-                <input wire:model="documentRoot"
-                       id="documentRoot"
-                       name="documentRoot"
-                       type="text"
-                       placeholder="/var/www/yoursite/public --- Add modal here for more info"
-                       class="input input-secondary input-bordered mb-3.5">
+                <input wire:model="documentRoot" id="documentRoot" name="documentRoot" type="text"
+                    placeholder="/var/www/yoursite/public"
+                    class="input input-secondary input-bordered mb-3.5">
 
                 {{-- Using SSL --}}
                 <label class="cursor-pointer label w-1/3 justify-items-start">
                     <span class="label-text">Using SSL?</span>
-                    <input wire:model="showSsl"
-                           type="checkbox"
-                           checked="checked"
-                           class="toggle toggle-secondary">
+                    <input wire:model="showSsl" type="checkbox" checked="checked" class="toggle toggle-secondary">
                 </label>
 
-                @if($showSsl)
+                @if ($showSsl)
 
                     <label for="my-modal-ssl" class="btn btn-secondary modal-button mt-4">Click here for SSL Certificate
                         Information</label>
@@ -85,7 +67,9 @@
                                 your terminal</p>
 
                             <h2 class="card-title">Enable mod_rewrite</h2>
-                            <p class="pb-6 text-justify">Before enabeling the config you need to also make sure rewrite is working on your server by typing <span class="text-pinkie-400">sudo a2enmod rewrite</span> in your terminal</p>
+                            <p class="pb-6 text-justify">Before enabeling the config you need to also make sure rewrite
+                                is working on your server by typing <span class="text-pinkie-400">sudo a2enmod
+                                    rewrite</span> in your terminal</p>
 
                             <h2 class="card-title">Certificate Location</h2>
                             <p class="pb-3.5 text-justify">The SSL Certificates can be stored anywhere on the system,
@@ -100,49 +84,45 @@
                     </div>
 
 
+
                     {{-- SSL Info --}}
                     <label class="label">
                         <span class="label-text">SSLCertificateFile</span>
                     </label>
-                    <input wire:model="certificateFile"
-                           id="certificateFile"
-                           name="certificateFile"
-                           type="text"
-                           placeholder="/usr/local/share/ca-certificates/yoursite_domain.cert.pem"
-                           class="input input-secondary input-bordered ">
+                    <input wire:model="certificateFile" id="certificateFile" name="certificateFile" type="text"
+                        placeholder="/usr/local/share/ca-certificates/yoursite_domain.cert.pem"
+                        class="input input-secondary input-bordered ">
 
                     <label class="label">
                         <span class="label-text">SSLCertificateKeyFile</span>
                     </label>
-                    <input wire:model="certificateKey"
-                           id="certificateKey"
-                           name="certificateKey"
-                           type="text"
-                           placeholder="/usr/local/share/ca-certificates/yoursite_private.key.pem"
-                           class="input input-secondary input-bordered">
+                    <input wire:model="certificateKey" id="certificateKey" name="certificateKey" type="text"
+                        placeholder="/usr/local/share/ca-certificates/yoursite_private.key.pem"
+                        class="input input-secondary input-bordered">
 
                     <label class="label">
                         <span class="label-text">SSLCertificateChainFile</span>
                     </label>
-                    <input wire:model="certificateChain"
-                           id="certificateChain"
-                           name="certificateChain"
-                           type="text"
-                           placeholder="/usr/local/share/ca-certificates/yoursite_intermediate.cert.pem"
-                           class="input input-secondary input-bordered">
+                    <input wire:model="certificateChain" id="certificateChain" name="certificateChain" type="text"
+                        placeholder="/usr/local/share/ca-certificates/yoursite_intermediate.cert.pem"
+                        class="input input-secondary input-bordered">
                 @endif
             </div>
 
 
 
             <div class="flex flex-around">
-                <button class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button mr-1 mt-3">Copy to Clipboard</button>
+                <button onclick="copyToClipboard('content-copy')"
+                    class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button mr-1 mt-3">Copy to
+                    Clipboard</button>
                 <div></div>
-                <button class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button ml-1 mt-3">Download Config</button>
+                <button class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button ml-1 mt-3">Download
+                    Config</button>
             </div>
 
 
-            <label for="my-modal-htaccess" class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button mt-3">.htaccess
+            <label for="my-modal-htaccess"
+                class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button mt-3">.htaccess
                 Information</label>
             <input type="checkbox" id="my-modal-htaccess" class="modal-toggle">
             <div class="modal">
@@ -154,12 +134,13 @@
                         the connections are all correct.
                     </p>
                     <div class="text-xs">
-<pre>
+                        <pre>
 <code class="text-xs text-white font-semibold">
-&lt;IfModule mod_rewrite.c&gt;
-    &lt;IfModule mod_negotiation.c&gt;
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
-    &lt;/IfModule&gt;
+    </IfModule>
 
     RewriteEngine On
 
@@ -176,7 +157,8 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
-&lt;/IfModule&gt;
+</IfModule>
+
 </code>
 </pre>
                     </div>
@@ -188,55 +170,112 @@
         </div>
     </div>
     {{-- <div class="divider divider-vertical divide-base-100"></div> --}}
-    <div id="input" class="grid flex-grow w-2/3 card bg-base-200 rounded-box place-items-start ml-4 text-md">
+    <div class="grid flex-grow w-2/3 card bg-base-200 rounded-box place-items-start ml-4 text-md">
+
+        <template id="content-copy" class="hidden plain-text">
+
+
+        </VirtualHost *:80>
+        ServerAdmin {{ $serverAdmin }}
+        ServerName {{ $serverName }}
+        ServerAlias {{ $serverAlias }}
+
+        DocumentRoot {{ $documentRoot }}
+
+    <Directory {{ $documentRoot }}>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    </VirtualHost>
+        @if ($showSsl)
+
+    <VirtualHost *:443>
+        ServerAdmin {{ $serverAdmin }}
+        ServerName {{ $serverName }}
+        ServerAlias {{ $serverAlias }}
+
+        DocumentRoot {{ $documentRoot }}
+
+    <Directory {{ $documentRoot }}>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+
+        SSLEngine on
+        SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+        SSLProtocol All -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
+        SSLHonorCipherOrder On
+
+        SSLCertificateFile {{ $certificateFile }}
+        SSLCertificateKeyFile {{ $certificateKey }}
+        SSLCertificateChainFile {{ $certificateChain }}
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+            @endif
+
+        </template>
+
+
+
         <pre>
             <code>
 
-        &lt;VirtualHost *:80&gt;
-            ServerAdmin {{ $serverAdmin }}
-            ServerName {{ $serverName }}
-            ServerAlias {{ $serverAlias }}
+            &lt;/VirtualHost *:80&gt;
+                ServerAdmin {{ $serverAdmin }}
+                ServerName {{ $serverName }}
+                ServerAlias {{ $serverAlias }}
 
-            DocumentRoot {{ $documentRoot }}
+                DocumentRoot {{ $documentRoot }}
 
-                &lt;Directory {{ $documentRoot }}&gt;
-                    Options Indexes FollowSymLinks MultiViews
-                    AllowOverride All
-                    Order allow,deny
-                    allow from all
-                &lt;/Directory&gt;
-
-            ErrorLog ${APACHE_LOG_DIR}/error.log
-            CustomLog ${APACHE_LOG_DIR}/access.log combined
-
-        &lt;/VirtualHost&gt;
-                @if($showSsl)
-
-        &lt;VirtualHost *:443&gt;
-            ServerAdmin {{ $serverAdmin }}
-            ServerName {{ $serverName }}
-            ServerAlias {{ $serverAlias }}
-
-            DocumentRoot {{ $documentRoot }}
-
-                &lt;Directory {{ $documentRoot }}&gt;
-                    Options Indexes FollowSymLinks MultiViews
-                    AllowOverride All
-                    Order allow,deny
-                    allow from all
-                &lt;/Directory&gt;
-
-            SSLEngine on
-            SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
-            SSLProtocol All -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
-            SSLHonorCipherOrder On
-
-            SSLCertificateFile {{ $certificateFile }}
-            SSLCertificateKeyFile {{ $certificateKey }}
-            SSLCertificateChainFile {{ $certificateChain }}
+            &lt;Directory {{ $documentRoot }}&gt;
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+            &lt;/Directory>
 
             ErrorLog ${APACHE_LOG_DIR}/error.log
             CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+            &lt;/VirtualHost&gt;
+                @if ($showSsl)
+
+            &lt;VirtualHost *:443&gt;
+                ServerAdmin {{ $serverAdmin }}
+                ServerName {{ $serverName }}
+                ServerAlias {{ $serverAlias }}
+
+                DocumentRoot {{ $documentRoot }}
+
+            &lt;Directory {{ $documentRoot }}&gt;
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+            &lt;/Directory&gt;
+
+                SSLEngine on
+                SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+                SSLProtocol All -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
+                SSLHonorCipherOrder On
+
+                SSLCertificateFile {{ $certificateFile }}
+                SSLCertificateKeyFile {{ $certificateKey }}
+                SSLCertificateChainFile {{ $certificateChain }}
+
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
 
         &lt;/VirtualHost&gt;
                     @endif
@@ -245,16 +284,11 @@
         </pre>
     </div>
 
-    </div>
-    {{-- <div class="grid flex-grow w-auto card bg-base-200 rounded-box place-items-start p-4 mx-4 text-md justify-center">Built With Laravel, Tailwind, Livewire and of course... Love.</div> --}}
-    <div class="grid flex-grow w-auto card bg-base-200 rounded-box place-items-start p-4 mx-4 text-md justify-center">
+</div>
 
-      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-        Built With Laravel, Tailwind, Livewire and of course... Love. Please follow me on Twitter @skino2020
-        <a class="ml-3 text-gray-400">
-          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-          </svg>
-        </a>
-
-      </span></div>
+<div class="grid flex-grow w-auto card bg-base-200 rounded-box place-items-start p-4 mx-4 text-md justify-center">
+    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+        Built With Laravel, Tailwind, Livewire and of course... Love. Please follow me on Twitter &nbsp; <a
+            href="https://twitter.com/skino2020" class="hover:text-secondary" target="_blank"> Skino2020</a>&nbsp; or if you fancy it buy me a coffee <a href="https://www.buymeacoffee.com/skino2020" target="_blank" class="hover:text-secondary">&nbsp;here</a>
+    </span>
+</div>

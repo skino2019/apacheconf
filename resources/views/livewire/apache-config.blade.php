@@ -112,12 +112,10 @@
 
 
             <div class="flex flex-around">
-                <button onclick="copyToClipboard('content-copy')"
+                <button onclick="copyToClipboard('#content-copy ~ pre > code')"
                     class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button mr-1 mt-3">Copy to
                     Clipboard</button>
-                <div></div>
-                <button class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button ml-1 mt-3">Download
-                    Config</button>
+
             </div>
 
 
@@ -137,10 +135,10 @@
                         <pre>
 <code class="text-xs text-white font-semibold">
 
-<IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
+&lt;IfModule mod_rewrite.c&gt;
+    &lt;IfModule mod_negotiation.c&gt;
         Options -MultiViews -Indexes
-    </IfModule>
+    &lt;/IfModule&gt;
 
     RewriteEngine On
 
@@ -157,7 +155,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
-</IfModule>
+&lt;/IfModule&gt;
 
 </code>
 </pre>
@@ -286,9 +284,35 @@
 
 </div>
 
-<div class="grid flex-grow w-auto card bg-base-200 rounded-box place-items-start p-4 mx-4 text-md justify-center">
+{{-- <div class="grid flex-grow w-auto card bg-base-200 rounded-box place-items-start p-4 mx-4 text-md justify-center mb-4">
     <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
         Built With Laravel, Tailwind, Livewire and of course... Love. Please follow me on Twitter &nbsp; <a
             href="https://twitter.com/skino2020" class="hover:text-secondary" target="_blank"> Skino2020</a>&nbsp; or if you fancy it buy me a coffee <a href="https://www.buymeacoffee.com/skino2020" target="_blank" class="hover:text-secondary">&nbsp;here</a>
     </span>
+</div> --}}
+
+{{-- <div class="grid flex-grow w-auto card bg-base-200 rounded-box place-items-start p-4 mx-4 text-md justify-center mb-4"> --}}
+<div class="flex flex-col w-auto flex-wrap p-5 md:items-center md:flex-row bg-base-200 rounded-box card mb-4 mx-4">
+    <a href="/" class="pr-2 lg:pr-8 lg:px-6 focus:outline-none">
+      <div class="inline-flex items-center">
+        <div class="w-2 h-2 p-2 mr-2 rounded-full bg-gradient-to-tr from-blue-500 to-blue-600">
+        </div>
+        <h2 class="block p-2 text-xl font-medium tracking-tighter text-black transition duration-500 ease-in-out transform cursor-pointer hover:text-blueGray-500 lg:text-x lg:mr-8"> Apache Conf </h2>
+      </div>
+    </a>
+<div>
+    Built With Laravel, Tailwind, Livewire and of course... Love. Please follow me on Twitter &nbsp; <a
+    href="https://twitter.com/skino2020" class="hover:text-secondary" target="_blank"> Skino2020</a>&nbsp; or if you fancy it buy me a coffee <a href="https://www.buymeacoffee.com/skino2020" target="_blank" class="hover:text-secondary">&nbsp;here</a>
 </div>
+    <span class="inline-flex justify-center mt-2 mr-2 sm:ml-auto sm:mt-0 sm:justify-start">
+
+      <a href="https://twitter.com/skino2020" target="_blank" class="ml-3 text-blue-500 hover:text-secondary">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+          </path>
+        </svg>
+      </a>
+
+    </span>
+  </div>
+

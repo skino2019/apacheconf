@@ -21,17 +21,26 @@
     <livewire:scripts />
 
     <script>
-        function copyToClipboard(elementId) {
+
+        function copyToClipboard(el) {
             var aux = document.createElement("input");
-            aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+            aux.setAttribute("value", document.querySelector(el).innerText);
             document.body.appendChild(aux);
             aux.select();
             document.execCommand("copy");
             document.body.removeChild(aux);
         }
-        function log() {
-            console.log('---')
-        }
+        // function copyToClipboard(elementId) {
+        //     var aux = document.createElement("input");
+        //     aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+        //     document.body.appendChild(aux);
+        //     aux.select();
+        //     document.execCommand("copy");
+        //     document.body.removeChild(aux);
+        // }
+        // function log() {
+        //     console.log('---')
+        // }
     </script>
 </body>
 

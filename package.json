@@ -18,6 +18,7 @@
         "tailwindcss": "^2.2.7"
     },
     "dependencies": {
+        "@tailwindcss/typography": "^0.4.1",
         "alpinejs": "^3.2.2",
         "daisyui": "^1.10.0"
     }

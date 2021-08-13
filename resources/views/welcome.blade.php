@@ -13,12 +13,25 @@
     <livewire:styles />
 </head>
 
-<body class="px-10 antialiased">
+<body class="antialiased px-10">
 
     @livewire('apache-config')
 
     </div>
     <livewire:scripts />
+
+    <script>
+        function copyToClipboard(){
+            var codeToBeCopied = document.getElementById('content-copy').innerText;
+            var emptyArea = document.createElement('TEXTAREA');
+            emptyArea.innerHTML = codeToBeCopied;
+            const parentElement = document.getElementById('post-title');
+            parentElement.appendChild(emptyArea);
+            emptyArea.select();
+            document.execCommand('copy');
+            parentElement.removeChild(emptyArea);
+        }
+    </script>
 </body>
 
 </html>

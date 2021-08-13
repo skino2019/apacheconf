@@ -1,5 +1,5 @@
 <div class="flex flex-row w-full p-4">
-    <div class="grid flex-grow w-1/3 h-auto p-4 card bg-base-200 rounded-box place-items-start">
+    <div class="grid flex-grow w-1/3 h-auto card bg-base-200 rounded-box place-items-start p-4">
 
         <div class="card-body">
             <h2 class="card-title">Start building your config</h2>
@@ -17,7 +17,7 @@
                 {{-- <button class="btn btn-secondary">More info</button> --}}
             </div>
 
-            <div class="pt-8 form-control">
+            <div class="form-control pt-8">
                 {{-- Server Admin --}}
                 <label class="label">
                     <span class="label-text">ServerAdmin</span>
@@ -48,14 +48,14 @@
                     class="input input-secondary input-bordered mb-3.5">
 
                 {{-- Using SSL --}}
-                <label class="w-1/3 cursor-pointer label justify-items-start">
+                <label class="cursor-pointer label w-1/3 justify-items-start">
                     <span class="label-text">Using SSL?</span>
                     <input wire:model="showSsl" type="checkbox" checked="checked" class="toggle toggle-secondary">
                 </label>
 
                 @if ($showSsl)
 
-                    <label for="my-modal-ssl" class="mt-4 btn btn-secondary modal-button">Click here for SSL Certificate
+                    <label for="my-modal-ssl" class="btn btn-secondary modal-button mt-4">Click here for SSL Certificate
                         Information</label>
                     <input type="checkbox" id="my-modal-ssl" class="modal-toggle">
                     <div class="modal">
@@ -112,27 +112,28 @@
 
 
             <div class="flex flex-around">
-                <button id="copyBtn"
-                    class="flex flex-auto mt-3 mr-1 btn bg-secondary hover:bg-secondary-focus modal-button">Copy to
+                <button onclick="copyToClipboard('#content-copy ~ pre > code')"
+                    class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button mr-1 mt-3">Copy to
                     Clipboard</button>
+
             </div>
 
 
             <label for="my-modal-htaccess"
-                class="flex flex-auto mt-3 btn bg-secondary hover:bg-secondary-focus modal-button">.htaccess
+                class="flex flex-auto btn bg-secondary hover:bg-secondary-focus modal-button mt-3">.htaccess
                 Information</label>
             <input type="checkbox" id="my-modal-htaccess" class="modal-toggle">
             <div class="modal">
                 <div class="modal-box">
                     <h2 class="card-title">HTACCESS Information</h2>
                     <p class="pb-6 text-justify">In your Laravel Project you will find the HTACCESS file under <span
-                            class="font-bold text-white">/public/.htaccess</span><br><br>
+                            class="text-white font-bold">/public/.htaccess</span><br><br>
                         Replace the existing Laravel .htaccess content with the information below. this will make sure
                         the connections are all correct.
                     </p>
                     <div class="text-xs">
                         <pre>
-<code class="text-xs font-semibold text-white">
+<code class="text-xs text-white font-semibold">
 
 &lt;IfModule mod_rewrite.c&gt;
     &lt;IfModule mod_negotiation.c&gt;
@@ -167,78 +168,123 @@
         </div>
     </div>
     {{-- <div class="divider divider-vertical divide-base-100"></div> --}}
-    <div class="grid flex-grow w-2/3 ml-4 card bg-base-200 rounded-box place-items-start text-md">
+    <div id='post-title' class="grid flex-grow w-2/3 card bg-base-200 rounded-box place-items-start ml-4 text-md">
 
-        <script>
-            const code = `
-                <VirtualHost *:80>
-                    ServerAdmin {{ $serverAdmin }}
-                    ServerName {{ $serverName }}
-                    ServerAlias {{ $serverAlias }}
+        <textarea id="content-copy" class="hidden plain-text">
 
-                    DocumentRoot {{ $documentRoot }}
 
-                    <Directory {{ $documentRoot }}>
-                        Options Indexes FollowSymLinks MultiViews
-                        AllowOverride All
-                        Order allow,deny
-                        allow from all
-                    </Directory>
+    </VirtualHost *:80>
+        ServerAdmin {{ $serverAdmin }}
+        ServerName {{ $serverName }}
+        ServerAlias {{ $serverAlias }}
 
-                    ErrorLog \${APACHE_LOG_DIR}/error.log
-                    CustomLog \${APACHE_LOG_DIR}/access.log combined
+        DocumentRoot {{ $documentRoot }}
 
-                </VirtualHost>
+    <Directory {{ $documentRoot }}>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
 
-                @if ($showSsl)
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
 
-                <VirtualHost *:443>
-                    ServerAdmin {{ $serverAdmin }}
-                    ServerName {{ $serverName }}
-                    ServerAlias {{ $serverAlias }}
+    </VirtualHost>
+        @if ($showSsl)
 
-                    DocumentRoot {{ $documentRoot }}
+    <VirtualHost *:443>
+        ServerAdmin {{ $serverAdmin }}
+        ServerName {{ $serverName }}
+        ServerAlias {{ $serverAlias }}
 
-                    <Directory {{ $documentRoot }}>
-                        Options Indexes FollowSymLinks MultiViews
-                        AllowOverride All
-                        Order allow,deny
-                        allow from all
-                    </Directory>
+        DocumentRoot {{ $documentRoot }}
 
-                    SSLEngine on
-                    SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
-                    SSLProtocol All -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
-                    SSLHonorCipherOrder On
+    <Directory {{ $documentRoot }}>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
 
-                    SSLCertificateFile {{ $certificateFile }}
-                    SSLCertificateKeyFile {{ $certificateKey }}
-                    SSLCertificateChainFile {{ $certificateChain }}
+        SSLEngine on
+        SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+        SSLProtocol All -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
+        SSLHonorCipherOrder On
 
-                    ErrorLog \${APACHE_LOG_DIR}/error.log
-                    CustomLog \${APACHE_LOG_DIR}/access.log combined
+        SSLCertificateFile {{ $certificateFile }}
+        SSLCertificateKeyFile {{ $certificateKey }}
+        SSLCertificateChainFile {{ $certificateChain }}
 
-                </VirtualHost>
-                @endif
-            `;
-        </script>
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    </VirtualHost>
+            @endif
+
+        </textarea>
+
+
 
         <pre>
-            <code id="code"></code>
+            <code>
+
+            &lt;/VirtualHost *:80&gt;
+                ServerAdmin {{ $serverAdmin }}
+                ServerName {{ $serverName }}
+                ServerAlias {{ $serverAlias }}
+
+                DocumentRoot {{ $documentRoot }}
+
+            &lt;Directory {{ $documentRoot }}&gt;
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+            &lt;/Directory>
+
+            ErrorLog ${APACHE_LOG_DIR}/error.log
+            CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+            &lt;/VirtualHost&gt;
+                @if ($showSsl)
+
+            &lt;VirtualHost *:443&gt;
+                ServerAdmin {{ $serverAdmin }}
+                ServerName {{ $serverName }}
+                ServerAlias {{ $serverAlias }}
+
+                DocumentRoot {{ $documentRoot }}
+
+            &lt;Directory {{ $documentRoot }}&gt;
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+            &lt;/Directory&gt;
+
+                SSLEngine on
+                SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+                SSLProtocol All -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
+                SSLHonorCipherOrder On
+
+                SSLCertificateFile {{ $certificateFile }}
+                SSLCertificateKeyFile {{ $certificateKey }}
+                SSLCertificateChainFile {{ $certificateChain }}
+
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        &lt;/VirtualHost&gt;
+                    @endif
+
+            </code>
         </pre>
     </div>
 
 </div>
 
-{{-- <div class="grid justify-center flex-grow w-auto p-4 mx-4 mb-4 card bg-base-200 rounded-box place-items-start text-md">
-    <span class="inline-flex justify-center mt-4 sm:ml-auto sm:mt-0 sm:justify-start">
-        Built With Laravel, Tailwind, Livewire and of course... Love. Please follow me on Twitter &nbsp; <a
-            href="https://twitter.com/skino2020" class="hover:text-secondary" target="_blank"> Skino2020</a>&nbsp; or if you fancy it buy me a coffee <a href="https://www.buymeacoffee.com/skino2020" target="_blank" class="hover:text-secondary">&nbsp;here</a>
-    </span>
-</div> --}}
-
-{{-- <div class="grid justify-center flex-grow w-auto p-4 mx-4 mb-4 card bg-base-200 rounded-box place-items-start text-md"> --}}
-<div class="flex flex-col flex-wrap w-auto p-5 mx-4 mb-4 md:items-center md:flex-row bg-base-200 rounded-box card">
+<div class="flex flex-col w-auto flex-wrap p-5 md:items-center md:flex-row bg-base-200 rounded-box card mb-4 mx-4">
     <a href="/" class="pr-2 lg:pr-8 lg:px-6 focus:outline-none">
       <div class="inline-flex items-center">
         <div class="w-2 h-2 p-2 mr-2 rounded-full bg-gradient-to-tr from-blue-500 to-blue-600">

@@ -68,7 +68,7 @@
 
                             <h2 class="card-title">Enable mod_rewrite</h2>
                             <p class="pb-6 text-justify">Before enabeling the config you need to also make sure rewrite
-                                is working on your server by typing <span class="text-pinkie-400">sudo a2enmod
+                                is working on your server by typing <span class="text-secondary">sudo a2enmod
                                     rewrite</span> in your terminal</p>
 
                             <h2 class="card-title">Certificate Location</h2>
@@ -187,8 +187,8 @@
         allow from all
     </Directory>
 
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
 
     </VirtualHost>
         @if ($showSsl)
@@ -243,8 +243,8 @@
                 allow from all
             &lt;/Directory>
 
-            ErrorLog ${APACHE_LOG_DIR}/error.log
-            CustomLog ${APACHE_LOG_DIR}/access.log combined
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
 
             &lt;/VirtualHost&gt;
                 @if ($showSsl)

@@ -367,7 +367,7 @@
             &lt;/VirtualHost&gt;
                 @endif
 
-            &lt;/VirtualHost *:80&gt;
+            &lt;VirtualHost *:80&gt;
 
                 ServerAdmin {{ $serverAdmin }}
                 ServerName {{ $serverName }}

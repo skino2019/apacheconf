@@ -4,7 +4,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Apache Config - The Easy way </title>
+
+    <!-- Primary Meta Tags -->
+    <title>Apache2 Config Generator - Apache Configs the easy way</title>
+    <meta name="title" content="Apache2 Config Generator">
+    <meta name="description" content="ApacheConfig aims to help people out by generating most of the config for them. with easy instructions on how to install them and commands to use.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://apacheconfig.live/">
+    <meta property="og:title" content="Apache2 Config Generator">
+    <meta property="og:description" content="ApacheConfig aims to help people out by generating most of the config for them. with easy instructions on how to install them and commands to use.">
+    <meta property="og:image" content="{{ asset('images/seo/googleimage.jpg') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://apacheconfig.live/">
+    <meta property="twitter:title" content="Apache2 Config Generator">
+    <meta property="twitter:description" content="ApacheConfig aims to help people out by generating most of the config for them. with easy instructions on how to install them and commands to use.">
+    <meta property="twitter:image" content="{{ asset('images/seo/googleimage.jpg') }}">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Styles -->

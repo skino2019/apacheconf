@@ -1,5 +1,16 @@
 module.exports = {
-    purge: [],
+    purge: {
+        enabled: true,
+        content: [
+            './app/**/*.php',
+            './resources/**/*.html',
+            './resources/**/*.js',
+            './resources/**/*.jsx',
+            './resources/**/*.ts',
+            './resources/**/*.php',
+            './resources/**/*.vue',
+        ],
+    },
     darkMode: false, // or 'media' or 'class'
     theme: {
         colors: {

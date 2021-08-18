@@ -303,7 +303,7 @@
     </VirtualHost>
             @endif
 
-    </VirtualHost *:80>
+    <VirtualHost *:80>
 
         ServerAdmin {{ $serverAdmin }}
         ServerName {{ $serverName }}

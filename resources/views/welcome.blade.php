@@ -24,6 +24,16 @@
     <meta property="twitter:description" content="ApacheConfig aims to help people out by generating most of the config for them. with easy instructions on how to install them and commands to use.">
     <meta property="twitter:image" content="{{ asset('images/seo/googleimage.jpg') }}">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DPYLWPZ9PB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-DPYLWPZ9PB');
+    </script>
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Styles -->

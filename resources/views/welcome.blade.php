@@ -26,13 +26,7 @@
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DPYLWPZ9PB"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-DPYLWPZ9PB');
-    </script>
+    <script async defer data-website-id="fe5222ec-182b-488d-84a9-4ff2f16f337e" src="http://raspada-analytics.one/umami.js"></script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
